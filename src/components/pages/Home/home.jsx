@@ -6,7 +6,7 @@ import { TicketDispatch } from '../../app';
 
 const Home = () => {
 
-  const [ticket, ticketDispatch] = useContext(TicketDispatch);
+  const [ticket, dispatch] = useContext(TicketDispatch);
   console.log(ticket);
 
   const { code } = useParams();
@@ -17,15 +17,12 @@ const Home = () => {
     code &&
       AppClient.getCodeTicket(code)
         .then(res => {
-          ticketDispatch(
-          ticket,
-          {
+          dispatch({
             type: 'DATA_TICKET',
-            value: res.value,
-            unit: res.unit,
-            date: res.date
+            value: res.data.value,
+            unit: res.data.unit,
+            date: res.data.date
           });
-          console.log(ticket);
         })
         .catch(err => {
           console.log(err.message);
