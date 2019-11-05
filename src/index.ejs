@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang=<%= htmlWebpackPlugin.options.lang %>>
+  <head>
+    <%= htmlWebpackPlugin.meta %>
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <% htmlWebpackPlugin.options.scripts.map(script => { %>
+      <script src="<%= script.src %>"></script>
+    <% }); %>
+    <% htmlWebpackPlugin.options.links.map(link => { %>
+      <link rel="stylesheet" href="<%= link.href %>"></script>
+    <% }); %>
+  </head>
+  <body>
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <div id="app"></div>
+  </body>
+</html>

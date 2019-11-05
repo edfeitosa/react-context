@@ -1,0 +1,74 @@
+{
+  "name": "react-context",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack-dev-server --config ./webpack.config.js --mode development",
+    "clean": "rimraf ./dist/*",
+    "build": "NODE_ENV=production webpack -p",
+    "test": "jest --maxWorkers=2 && jest --clearCache",
+    "update-check": "npm-check",
+    "depcheck": "depcheck --ignores=csp-html-webpack-plugin",
+    "mock:api": "json-server --watch ./__mocks__/api/db.json --port 4000"
+  },
+  "jest": {
+    "setupFiles": [
+      "./config/jest.config.js"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/tests/fileMock.js",
+      "^.+\\.(css|scss)$": "identity-obj-proxy",
+      "^.+\\.(css|less|scss)$": "babel-jest"
+    },
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/components/pages/**/*.{js,jsx}",
+      "src/components/atoms/**/**/*.{js,jsx}",
+      "src/components/molecules/**/*.{js,jsx}",
+      "src/components/organisms/**/*.{js,jsx}"
+    ]
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@material-ui/core": "^4.4.3",
+    "@material-ui/icons": "^4.4.3",
+    "axios": "^0.19.0",
+    "html-react-parser": "^0.9.1",
+    "prop-types": "^15.7.2",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-router-dom": "^5.1.0",
+    "regenerator-runtime": "^0.13.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.0",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-transform-runtime": "^7.6.2",
+    "@babel/preset-env": "^7.6.0",
+    "@babel/preset-react": "^7.0.0",
+    "@beyonk/google-fonts-webpack-plugin": "^1.2.3",
+    "babel-jest": "^24.9.0",
+    "babel-loader": "^8.0.6",
+    "csp-html-webpack-plugin": "^3.0.3",
+    "dotenv": "^8.1.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "enzyme-to-json": "^3.4.0",
+    "html-webpack-plugin": "^3.2.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^24.9.0",
+    "json-server": "^0.15.1",
+    "npm-check": "^5.9.0",
+    "react-hot-loader": "^4.12.15",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.8",
+    "webpack-dev-server": "^3.8.1"
+  }
+}
