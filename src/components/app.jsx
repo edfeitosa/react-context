@@ -4,19 +4,19 @@ import { MuiThemeProvider } from '@material-ui/core/styles';
 import MainTemplate from './templates/MainTemplate/mainTemplate';
 import muitTheme from './theme/muiTheme';
 
-import { ticketInitial } from '../context/ticket/ticketInitial';
-import ticketReducer from '../context/ticket/ticketReducer';
+import { initialState } from '../context/initialState';
+import stateReducer from '../context/stateReducer';
 
-export const TicketDispatch = createContext(null);
+export const StateDispatch = createContext(null);
 
 const App = () => {
-  const [ticket, ticketDispatch] = useReducer(ticketReducer, ticketInitial);
+  const [states, stateDispatch] = useReducer(stateReducer, initialState);
   return (
-    <TicketDispatch.Provider value={[ ticket, ticketDispatch ]}>
+    <StateDispatch.Provider value={[ states, stateDispatch ]}>
       <MuiThemeProvider theme={muitTheme}>
         <MainTemplate />
       </MuiThemeProvider>
-    </TicketDispatch.Provider>
+    </StateDispatch.Provider>
   )
 }
 

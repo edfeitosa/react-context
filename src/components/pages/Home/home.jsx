@@ -2,12 +2,12 @@ import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import LinkButton from '../../molecules/LinkButton/linkButton';
 import AppClient from '../../../clients/appClient';
-import { TicketDispatch } from '../../app';
+import { StateDispatch } from '../../app';
 
 const Home = () => {
 
-  const [ticket, dispatch] = useContext(TicketDispatch);
-  console.log(ticket);
+  const [states, dispatch] = useContext(StateDispatch);
+  console.log(states);
 
   const { code } = useParams();
 
