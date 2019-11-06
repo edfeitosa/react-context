@@ -3,6 +3,7 @@ export default (state, action) => {
     case 'DATA_TICKET':
       return {
         ...state,
+        code: action.code,
         value: action.value,
         unit: action.unit,
         date: action.date

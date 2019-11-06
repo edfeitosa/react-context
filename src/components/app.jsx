@@ -10,9 +10,9 @@ import stateReducer from '../context/stateReducer';
 export const StateDispatch = createContext(null);
 
 const App = () => {
-  const [states, stateDispatch] = useReducer(stateReducer, initialState);
+  const [states, dispatch] = useReducer(stateReducer, initialState);
   return (
-    <StateDispatch.Provider value={[ states, stateDispatch ]}>
+    <StateDispatch.Provider value={[ states, dispatch ]}>
       <MuiThemeProvider theme={muitTheme}>
         <MainTemplate />
       </MuiThemeProvider>

@@ -26,8 +26,8 @@ module.exports = {
   },
   output: {
     path: `${__dirname}/${publishFolder}`,
-    publicPath: '',
-    filename: './bundle.js'
+    publicPath: '/',
+    filename: 'bundle.js'
   },
   plugins: [
     new webpack.LoaderOptionsPlugin({
@@ -46,7 +46,7 @@ module.exports = {
         viewport: 'width=device-width, initial-scale=1'
       },
       scripts: [
-        { src: 'env.js' }
+        { src: '/env.js' }
       ],
       links: [
         { href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700"' },

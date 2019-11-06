@@ -7,7 +7,6 @@ import { StateDispatch } from '../../app';
 const Home = () => {
 
   const [states, dispatch] = useContext(StateDispatch);
-  console.log(states);
 
   const { code } = useParams();
 
@@ -19,6 +18,7 @@ const Home = () => {
         .then(res => {
           dispatch({
             type: 'DATA_TICKET',
+            code: res.data.id,
             value: res.data.value,
             unit: res.data.unit,
             date: res.data.date
@@ -39,8 +39,11 @@ const Home = () => {
           <p>O código informado não existe ou não foi encontrado</p>
           :
           <>
-            <p>Está é a página inicial do projeto de teste</p>
-            <LinkButton href='/' textFace='Avançar' />
+            <p>
+              O ticket com código <b>{states.code}</b> foi encontrado. 
+              Clique em <b>Avançar</b> para continuar
+            </p>
+            <LinkButton href='/phonenumber' textFace='Avançar' />
           </>
       }
     </>
